@@ -4,15 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Styles</title>
+    
     <link rel="stylesheet" href="./index.css" />
   </head>
 <body>
   <header><h1>Poker Cards</h1></header>
     <main>
-        <section><span>A</span><span>♦</span><span>A</span></section>
-        <section><span>A</span><span>♣</span><span>A</span></section>
-        <section><span>A</span><span>♥</span><span>A</span></section>
-        <section><span>A</span><span>♠</span><span>A</span></section>
+      <div>
+      <div>
+      <input id="cardId"  placeholder="insert ID" >      
+      <input id="cardStyle" placeholder="insert card Styel" > 
+      </div>
+      <div>
+      <button class="buttonId" onclick="setCard()">Press BUTTON</button>
+     </div>
+     </div>
+        <section id="diamond"><span>A</span><span>♦</span><span>A</span></section>
+        <section id="club"><span>A</span><span>♣</span><span>A</span></section>
+        <section id="heart"><span>A</span><span>♥</span><span>A</span></section>
+        <section id="spade"><span>A</span><span>♠</span><span>A</span></section>
     </main>
+    <script src="index.js"></script>
 </body>
 </html>

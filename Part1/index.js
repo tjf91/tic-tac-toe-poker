@@ -23,10 +23,10 @@ function winningArrMaker(str,arr){
 
 
 console.log(combos)
+//combos is an array of arrays containing all possible combinations
 
 
 
-// console.log('this combos '+combos)
 function play (e){
    const square = document.getElementById(e)
    let player = document.getElementById("player")
@@ -45,8 +45,7 @@ function play (e){
     square.addEventListener('click',play)
     
     
-    console.log('final xArr ' + gameArrX)
-
+    
    for(let i=0;i<8;i++){
      let countX = 0
      let countO = 0
