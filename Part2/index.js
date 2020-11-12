@@ -9,7 +9,5 @@ const cardStyle =document.getElementById('cardStyle')
 function setCard ()  {
     const card = document.getElementById(cardId.value)
     console.log(card)
-    card.style.backgroundColor = cardStyle.value
-    
+    card.style.backgroundColor = cardStyle.value   
 }
-

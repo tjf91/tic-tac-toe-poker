@@ -34,3 +34,6 @@
     text-align: center;
     font-size: 2em;
 }
+td:hover{
+    background-color: rgba(224, 255, 255, 0.541);
+}

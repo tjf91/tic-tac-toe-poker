@@ -23,7 +23,7 @@ function winningArrMaker(str,arr){
 
 
 console.log(combos)
-//combos is an array of arrays containing all possible combinations
+//combos is an array of arrays containing all possible winning board combinations
 
 
 
