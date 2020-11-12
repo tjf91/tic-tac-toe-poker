@@ -60,3 +60,6 @@ input{
 button{
   height: 30px;
 }
+td{
+  background-color: white;
+}

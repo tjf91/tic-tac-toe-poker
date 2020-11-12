@@ -1,11 +1,11 @@
 console.log("testing index.js script")
 
-const gameArrX =[0,0,0,0,0,0,0,0,0,0]
-const gameArrO =[0,0,0,0,0,0,0,0,0,0]
+let gameArrX =[0,0,0,0,0,0,0,0,0,0]
+let gameArrO =[0,0,0,0,0,0,0,0,0,0]
 const winningStrings= ['012','345','678','036','147','258','048','246']
 const winningArrs=[]
 const combos = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]
-
+let clicks= 9
 
 function winningArrMaker(str,arr){
     str.split("").forEach(x=>{        
@@ -25,15 +25,14 @@ function winningArrMaker(str,arr){
 console.log(combos)
 //combos is an array of arrays containing all possible winning board combinations
 
-
  
-let clicks= 9
+
 
 function play (e){
+    
    const square = document.getElementById(e)
    const hoverColor = document.querySelector('td:hover')
    hoverColor.style.backgroundColor='lightpink'
-   console.log(hoverColor)
    let player = document.getElementById("player")
    square.innerText = player.innerText     
     if(player.innerText==="O"){
@@ -65,25 +64,67 @@ function play (e){
             countO+=1
          }
          if(countX===3){            
-             alert("OMG PLAYER X WINS")
+             alert("OMG PLAYER X WINS")             
+             resetBut() 
+             square.removeEventListener('click',play)
+             newBut.addEventListener('click', reset)            
              break
           }
         if(countO===3){
             alert("OMG PLAYER O WINS")
+            resetBut() 
+             square.removeEventListener('click',play)
+             newBut.addEventListener('click', reset)  
             break
+            
          }
          if(clicks ===0 ){
              alert("cat's game")
              clicks++
+             resetBut() 
+             square.removeEventListener('click',play)
+             newBut.addEventListener('click', reset)  
              break
+             
          }
      }
      
  }
-
-        square.addEventListener('click',play)
+        
+     square.addEventListener('click',play)
     }
  
-     
+        
+    const table = document.getElementById('reset')
 
+    const newBut = document.createElement('BUTTON')
+    newBut.innerHTML = "Reset GAME"
+    
+    function reset(){
+        const resetSquare = document.getElementsByTagName('td') 
+        
+        for(let i=0; i<9;i++){
+            console.log(resetSquare[i])
+            resetSquare[i].innerHTML=""
+            resetSquare[i].style.backgroundColor='white'
+            gameArrX =[0,0,0,0,0,0,0,0,0,0]   
+            gameArrO =[0,0,0,0,0,0,0,0,0,0]
+            clicks = [9]
+        }
+        
+        
 
+    }
+    
+
+    
+    function resetBut() {
+        table.appendChild(newBut)
+                
+    }
+    
+    
+      
+    
+
+    
