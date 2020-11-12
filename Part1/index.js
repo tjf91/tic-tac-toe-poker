@@ -26,20 +26,26 @@ console.log(combos)
 //combos is an array of arrays containing all possible winning board combinations
 
 
+ 
+
 
 function play (e){
    const square = document.getElementById(e)
+   const hoverColor = document.querySelector('td:hover')
+   hoverColor.style.backgroundColor='lightpink'
+   console.log(hoverColor)
    let player = document.getElementById("player")
    square.innerText = player.innerText     
     if(player.innerText==="O"){
         player.innerText = "X"
-        gameArrO[e]+=1    
+        gameArrO[e]+=1
+        hoverColor.style.backgroundColor='lightpink'    
     }
     else if(player.innerText==="X"){
         gameArrX[e]+=1
         player.innerText = "O"
         console.log(gameArrX)
-
+        hoverColor.style.backgroundColor='lightblue'
     }  
        
     square.addEventListener('click',play)
