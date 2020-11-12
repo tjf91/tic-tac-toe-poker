@@ -5,7 +5,7 @@ const gameArrO =[0,0,0,0,0,0,0,0,0,0]
 const winningStrings= ['012','345','678','036','147','258','048','246']
 const winningArrs=[]
 const combos = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]
-const combo = [0,0,0,0,0,0,0,0,0,0]
+
 
 function winningArrMaker(str,arr){
     str.split("").forEach(x=>{        
@@ -27,7 +27,7 @@ console.log(combos)
 
 
  
-
+let clicks= 9
 
 function play (e){
    const square = document.getElementById(e)
@@ -38,17 +38,19 @@ function play (e){
    square.innerText = player.innerText     
     if(player.innerText==="O"){
         player.innerText = "X"
-        gameArrO[e]+=1
-        hoverColor.style.backgroundColor='lightpink'    
+        gameArrO[e]+=1        
+        hoverColor.style.backgroundColor='lightpink'
+        clicks -=1    
     }
     else if(player.innerText==="X"){
         gameArrX[e]+=1
         player.innerText = "O"
         console.log(gameArrX)
         hoverColor.style.backgroundColor='lightblue'
+        clicks -=1 
     }  
        
-    square.addEventListener('click',play)
+    
     
     
     
@@ -62,7 +64,7 @@ function play (e){
         if(combos[i][j]===1 &&gameArrO[j]===1){
             countO+=1
          }
-         if(countX===3){
+         if(countX===3){            
              alert("OMG PLAYER X WINS")
              break
           }
@@ -70,9 +72,16 @@ function play (e){
             alert("OMG PLAYER O WINS")
             break
          }
+         if(clicks ===0 ){
+             alert("cat's game")
+             clicks++
+             break
+         }
      }
      
  }
+
+        square.addEventListener('click',play)
     }
  
      
